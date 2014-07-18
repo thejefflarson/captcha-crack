@@ -6,6 +6,9 @@ nn: nn.c
 
 tn: tn.c
 
+cnn: cnn.cc
+	clang++ cnn.cc -o cnn -I./tiny-cnn/include -std=c++11 -lstdc++
+
 process:
 	ruby process.rb
 

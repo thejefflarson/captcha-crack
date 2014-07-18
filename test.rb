@@ -6,10 +6,12 @@ wrong = 0
 
 Dir[File.join(__dir__, "test", "*")].each do |f|
   img = ChunkyPNG::Image.from_file f
-  data = img.pixels.map {|p| ((p & 0xff000000) >> 24) > 60 ? 1 : 0 }.join(' ')
+  img.crop! 20, 6, 95, 35
+  data = img.pixels.map {|p| ((p & 0xff000000) >> 24) < 60 ? 1 : 0 }.join(' ')
   res = `echo #{data} | ./tn`
-  arr = res.split(" ").map {|i| i.to_f.round.to_i }.join(' ')
-  txt = File.basename(f, '.png').split('').slice(3, 5).join(' ')
+  p res
+  arr = res.split(" ").map(&:to_f).each_slice(10).map {|i| i.index(i.max) }.to_a.join(' ')
+  txt = File.basename(f, '.png').split('').join(' ')
   puts "#{arr} #{txt}"
   arr == txt ? right += 1 : wrong += 1
 end
