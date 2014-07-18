@@ -22,7 +22,7 @@ Dir[File.join(__dir__, "test", "*")].each do |f|
   end
 
   txt = File.basename(f, '.png').split('').join(' ')
-  puts "#{arr.join(' ')} #{txt} #{arr.join(' ') == txt}"
+  puts "#{arr.join(' ')} | #{txt} #{arr.join(' ') == txt}" if arr.join(' ') != txt
   arr.join(' ') == txt ? right += 1 : wrong += 1
 end
 
