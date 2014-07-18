@@ -13,11 +13,12 @@ process:
 	ruby process.rb
 
 generate: Generate.class
+	cd kaptcha-read-only && ant && cd ..
 	# rm ./out/*.png
 	# rm ./test/*.png
-	java -cp .:lib/kaptcha--1.jar Generate
+	java -cp .:kaptcha-read-only/target/kaptcha--1.jar Generate
 
 Generate.class: Generate.java
-	javac Generate.java -cp .:lib/kaptcha--1.jar
+	javac Generate.java -cp .:kaptcha-read-only/target/kaptcha--1.jar
 
 .PHONY: generate process
