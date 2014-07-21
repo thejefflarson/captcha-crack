@@ -1,0 +1,23 @@
+captcha crack
+=============
+
+This is a collection of programs to break captchas like this:
+
+https://tender.me.gov.ua/EDZFrontOffice/SimpleCaptcha.jpg
+
+In order to get it running you need FANN, on ubuntu run:
+
+sudo apt-get install libfann
+
+and then you should be able to run:
+
+make tn
+
+to compile the neural network. You'll need to run bundle install to get the ruby
+deoendencies.
+
+In order to solve captchas run:
+
+ruby solve.rb <filename>
+
+The captcha imagess must be in png format.
