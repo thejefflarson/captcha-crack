@@ -11,7 +11,7 @@ offsets = [0, 24, 43, 62, 83, 105]
   im = img.crop(offsets[i], 0,  offsets[i + 1] - offsets[i], 35)
   im.resample_nearest_neighbor! 16, 16
   data = im.pixels.join(' ')
-  res = `echo #{data} | ./tn`
+  res = `echo #{data} | ./tn #{ARGV[1]}`
 
   a = res.split(" ").map(&:to_f)
   arr.push(a.index(a.max))
