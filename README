@@ -1,9 +1,7 @@
 captcha crack
 =============
 
-This is a collection of programs to break captchas like this:
-
-https://tender.me.gov.ua/EDZFrontOffice/SimpleCaptcha.jpg
+This is a collection of programs to break captchas.
 
 In order to get it running you need FANN, on ubuntu run:
 
